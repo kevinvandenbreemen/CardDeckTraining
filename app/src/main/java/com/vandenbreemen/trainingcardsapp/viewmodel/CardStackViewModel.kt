@@ -22,6 +22,7 @@ class CardStackViewModel: ViewModel(), CardsOutputInteractor {
     }
 
     val currentCard: MutableLiveData<Card> = MutableLiveData()
+    val cardCount: MutableLiveData<Int> = MutableLiveData()
 
     /**
      * Tap the deck, causing the current card to go to the back of the stack
@@ -37,6 +38,7 @@ class CardStackViewModel: ViewModel(), CardsOutputInteractor {
     override fun sendCard(card: Card) {
         cards.add(0, card)
         currentCard.value = card
+        cardCount.value = cards.size
     }
 
     fun addCard() {
