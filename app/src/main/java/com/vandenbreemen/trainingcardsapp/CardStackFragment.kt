@@ -1,5 +1,6 @@
 package com.vandenbreemen.trainingcardsapp
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.vandenbreemen.trainingcardsapp.viewmodel.CardStackViewModel
+import javax.inject.Inject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +24,15 @@ private const val ARG_PARAM2 = "param2"
  */
 class CardStackFragment : Fragment() {
 
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    override fun onAttach(context: Context) {
+        (context.applicationContext as CardsApp).component.inject(this)
+
+        super.onAttach(context)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -33,7 +45,7 @@ class CardStackFragment : Fragment() {
         // Inflate the layout for this fragment
         val ret = inflater.inflate(R.layout.fragment_card_stack, container, false)
 
-        val viewModel: CardStackViewModel by activityViewModels()
+        val viewModel: CardStackViewModel by activityViewModels { viewModelFactory }
         viewModel.currentCard.observe(viewLifecycleOwner, Observer {card ->
             ret.setBackgroundColor(card.color.toArgb())
         })
