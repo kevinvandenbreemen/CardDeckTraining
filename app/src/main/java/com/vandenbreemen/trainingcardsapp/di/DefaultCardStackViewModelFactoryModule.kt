@@ -10,7 +10,7 @@ import dagger.Module
  * @author kevin
  */
 @Module
-interface DefaultCardStackViewModelFactoryProvider {
+interface DefaultCardStackViewModelFactoryModule {
 
     @Binds
     fun buildDefaultFactory(factory: CardStackViewModelFactory): ViewModelProvider.Factory

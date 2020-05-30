@@ -1,22 +1,20 @@
 package com.vandenbreemen.trainingcardsapp.viewmodel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.vandenbreemen.trainingcardsapp.entity.Card
 import com.vandenbreemen.trainingcardsapp.interactor.CardsInteractor
 import com.vandenbreemen.trainingcardsapp.interactor.CardsOutputInteractor
-import com.vandenbreemen.trainingcardsapp.interactor.DefaultCardsInteractor
 import java.util.*
+import javax.inject.Inject
 
 /**
  *
  * @author kevin
  */
-class CardStackViewModel: ViewModel(), CardsOutputInteractor {
+class CardStackViewModel @Inject constructor(private val interactor: CardsInteractor): ViewModel(), CardsOutputInteractor {
 
     private val cards: MutableList<Card> = mutableListOf()
-    private val interactor: CardsInteractor = DefaultCardsInteractor()
 
     init {
         interactor.output = this

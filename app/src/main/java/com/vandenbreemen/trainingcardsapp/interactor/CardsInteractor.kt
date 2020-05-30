@@ -3,6 +3,7 @@ package com.vandenbreemen.trainingcardsapp.interactor
 import android.graphics.Color
 import com.vandenbreemen.trainingcardsapp.entity.Card
 import java.util.*
+import javax.inject.Inject
 
 /**
  *
@@ -25,7 +26,7 @@ interface CardsOutputInteractor {
 
 }
 
-class DefaultCardsInteractor: CardsInteractor {
+class DefaultCardsInteractor @Inject constructor(): CardsInteractor {
 
     override var output: CardsOutputInteractor? = null
 
