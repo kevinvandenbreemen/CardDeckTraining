@@ -42,4 +42,16 @@
         app:layout_constraintStart_toEndOf="@+id/cardStackContainer"
         app:layout_constraintTop_toTopOf="@+id/cardStackContainer"
         app:layout_constraintVertical_bias="0.0" />
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.vandenbreemen.CardStackSummaryFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardStackContainer"
+        app:layout_constraintTop_toBottomOf="@+id/fragment"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
