@@ -22,6 +22,10 @@ interface CardsInteractor {
  */
 interface CardsOutputInteractor {
 
+    /**
+     * Pass card back from the input source.  Implementations should not assume this method is
+     * being called on the main thread.
+     */
     fun sendCard(card: Card)
 
 }
