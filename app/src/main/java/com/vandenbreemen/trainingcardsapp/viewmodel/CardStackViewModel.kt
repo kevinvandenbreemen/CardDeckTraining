@@ -43,9 +43,9 @@ class CardStackViewModel @Inject constructor(private val interactor: CardsIntera
 
     override fun sendCard(card: Card) {
         cards.add(0, card)
-        currentCard.value = card
-        cardCount.value = cards.size
-        cardsList.value = Collections.unmodifiableList(cards)
+        currentCard.postValue(card)
+        cardCount.postValue(cards.size)
+        cardsList.postValue(Collections.unmodifiableList(cards))
     }
 
     fun addCard() {

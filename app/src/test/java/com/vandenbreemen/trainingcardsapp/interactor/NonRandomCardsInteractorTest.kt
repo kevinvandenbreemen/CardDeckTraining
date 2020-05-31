@@ -1,6 +1,7 @@
 package com.vandenbreemen.trainingcardsapp.interactor
 
 import com.vandenbreemen.trainingcardsapp.entity.Card
+import kotlinx.coroutines.test.TestCoroutineDispatcher
 import org.junit.Before
 
 import org.junit.Assert.*
@@ -18,7 +19,7 @@ class NonRandomCardsInteractorTest {
 
     @Before
     fun setUp() {
-        interactor = NonRandomCardsInteractor()
+        interactor = NonRandomCardsInteractor(TestCoroutineDispatcher())
     }
 
     @Test

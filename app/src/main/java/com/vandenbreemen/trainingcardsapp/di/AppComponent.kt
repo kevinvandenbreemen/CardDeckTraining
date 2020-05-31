@@ -10,7 +10,9 @@ import dagger.Component
  *
  * @author kevin
  */
-@Component(modules = [DefaultCardStackViewModelFactoryModule::class, NonRandomCardsInteractorModule::class])
+@Component(modules = [DefaultCardStackViewModelFactoryModule::class, NonRandomCardsInteractorModule::class,
+    CoroutineContextModule::class
+])
 interface AppComponent {
 
     fun inject(main: MainActivity)
